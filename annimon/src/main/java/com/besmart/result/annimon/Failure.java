@@ -70,6 +70,11 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
     }
 
     @Override
+    public <T> T match(Function<TSuccess, T> onSuccess, Function<TFailure, T> onFailure) {
+        return onFailure.apply(error);
+    }
+
+    @Override
     public <T> Result<T, TFailure> onSuccess(
             final Supplier<Result<T, TFailure>> function) {
         return new Failure<>(getError());

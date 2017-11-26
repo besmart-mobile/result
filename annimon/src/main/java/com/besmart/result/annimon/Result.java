@@ -16,45 +16,6 @@ import com.besmart.result.annimon.functions.*;
  * @param <TFailure> The type of the error object in case of a failure.
  */
 public abstract class Result<TSuccess, TFailure> {
-    public static <S1, S2, S, F> Result<S, F> combine(Result<S1, F> r1,
-                                                      Result<S2, F> r2,
-                                                      BiFunction<S1, S2, S> combiner) {
-        return r1.combine(r2, combiner);
-    }
-
-    public static <S1, S2, S3, S, F> Result<S, F> combine(Result<S1, F> r1,
-                                                          Result<S2, F> r2,
-                                                          Result<S3, F> r3,
-                                                          Func3<S1, S2, S3, S> combiner) {
-        return r1.combine(r2, r3, combiner);
-    }
-
-    public static <S1, S2, S3, S4, S, F> Result<S, F> combine(Result<S1, F> r1,
-                                                              Result<S2, F> r2,
-                                                              Result<S3, F> r3,
-                                                              Result<S4, F> r4,
-                                                              Func4<S1, S2, S3, S4, S> combiner) {
-        return r1.combine(r2, r3, r4, combiner);
-    }
-
-    public static <S1, S2, S3, S4, S5, S, F> Result<S, F> combine(Result<S1, F> r1,
-                                                                  Result<S2, F> r2,
-                                                                  Result<S3, F> r3,
-                                                                  Result<S4, F> r4,
-                                                                  Result<S5, F> r5,
-                                                                  Func5<S1, S2, S3, S4, S5, S> combiner) {
-        return r1.combine(r2, r3, r4, r5, combiner);
-    }
-
-//    /**
-//     * Creates a new Result with GenericFailure error.
-//     *
-//     * @return Failed Result.
-//     */
-//    public static <TSuccess> Result<TSuccess, GenericFailure> withError() {
-//        return new Failure<>(GenericFailure.getInstance());
-//    }
-
     /**
      * Creates a new Result with the given error.
      *
@@ -65,15 +26,6 @@ public abstract class Result<TSuccess, TFailure> {
         assertParameterNotNull(error, "Error");
         return new Failure<>(error);
     }
-
-//    /**
-//     * Creates a new Result without a value.
-//     *
-//     * @return Successful Result.
-//     */
-//    public static <TFailure> Result<Void, TFailure> withoutValue() {
-//        return new Success<>(null);
-//    }
 
     /**
      * Creates a successful Result with the given value. The value may not be null.
@@ -199,6 +151,9 @@ public abstract class Result<TSuccess, TFailure> {
                                                                     final Result<T4, TFailure> otherResult4,
                                                                     final Func5<TSuccess, T1, T2, T3, T4, R> combiner);
 
+    public abstract <T> T match(
+            final Function<TSuccess, T> onSuccess,
+            final Function<TFailure, T> onFailure);
 
     /**
      * Runs the given function, if the Result is successful.
