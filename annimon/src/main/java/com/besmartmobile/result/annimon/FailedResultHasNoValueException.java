@@ -1,4 +1,4 @@
-package com.besmart.result.annimon;
+package com.besmartmobile.result.annimon;
 
 public class FailedResultHasNoValueException extends RuntimeException {
     private static final long serialVersionUID = -8674147111084040578L;

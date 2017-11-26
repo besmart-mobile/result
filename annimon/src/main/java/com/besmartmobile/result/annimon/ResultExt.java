@@ -1,10 +1,10 @@
-package com.besmart.result.annimon;
+package com.besmartmobile.result.annimon;
 
 
 import com.annimon.stream.function.BiFunction;
-import com.besmart.result.annimon.functions.Func3;
-import com.besmart.result.annimon.functions.Func4;
-import com.besmart.result.annimon.functions.Func5;
+import com.besmartmobile.result.annimon.functions.Func3;
+import com.besmartmobile.result.annimon.functions.Func4;
+import com.besmartmobile.result.annimon.functions.Func5;
 
 public class ResultExt {
 

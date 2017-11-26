@@ -1,4 +1,4 @@
-package com.besmart.result.annimon;
+package com.besmartmobile.result.annimon;
 
 
 import com.annimon.stream.Optional;
@@ -7,7 +7,7 @@ import com.annimon.stream.function.Consumer;
 import com.annimon.stream.function.Function;
 import com.annimon.stream.function.Predicate;
 import com.annimon.stream.function.Supplier;
-import com.besmart.result.annimon.functions.*;
+import com.besmartmobile.result.annimon.functions.*;
 
 public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
     private final TFailure error;

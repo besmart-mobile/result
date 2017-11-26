@@ -1,4 +1,4 @@
-package com.besmart.result.annimon;
+package com.besmartmobile.result.annimon;
 
 import com.annimon.stream.Optional;
 import com.annimon.stream.function.BiFunction;
@@ -6,7 +6,7 @@ import com.annimon.stream.function.Consumer;
 import com.annimon.stream.function.Function;
 import com.annimon.stream.function.Predicate;
 import com.annimon.stream.function.Supplier;
-import com.besmart.result.annimon.functions.*;
+import com.besmartmobile.result.annimon.functions.*;
 
 /**
  * Result of a computation or any other action. Can be successful and contain a value (TSuccess) or
