@@ -2,6 +2,7 @@ package com.besmartmobile.result.annimon;
 
 
 import com.annimon.stream.function.BiFunction;
+import com.annimon.stream.function.Function;
 import com.besmartmobile.result.annimon.functions.Func3;
 import com.besmartmobile.result.annimon.functions.Func4;
 import com.besmartmobile.result.annimon.functions.Func5;
@@ -22,6 +23,12 @@ public class ResultExt {
 
     public static <TSuccess> Result<TSuccess, Unit> fail() {
         return Result.withError(Unit.unit());
+    }
+
+    public static  <T, TSuccess, TFailure> T match(Result<TSuccess, TFailure> result,
+            Function<TSuccess, T> onSuccess,
+            Function<TFailure, T> onFailure) {
+        return result.match(onSuccess, onFailure);
     }
 
     public static <S1, S2, S, F> Result<S, F> combine(Result<S1, F> r1,

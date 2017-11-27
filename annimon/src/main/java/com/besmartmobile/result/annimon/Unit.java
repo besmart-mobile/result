@@ -8,4 +8,8 @@ public final class Unit {
     public static Unit unit() {
         return instance;
     }
+
+    public static Unit ignore(Object object) {
+        return instance;
+    }
 }
