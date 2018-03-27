@@ -12,4 +12,9 @@ public final class Unit {
     public static Unit ignore(Object object) {
         return instance;
     }
+
+    public static Unit run(Runnable runnable) {
+        runnable.run();
+        return instance;
+    }
 }
