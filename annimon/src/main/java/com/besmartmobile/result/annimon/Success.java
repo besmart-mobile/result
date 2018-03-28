@@ -1,6 +1,7 @@
 package com.besmartmobile.result.annimon;
 
 
+import com.annimon.stream.Objects;
 import com.annimon.stream.Optional;
 import com.annimon.stream.function.BiFunction;
 import com.annimon.stream.function.Consumer;
@@ -222,4 +223,24 @@ public class Success<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
             final Predicate<TFailure> predicate, final Consumer<TFailure> function) {
         return this;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Success)) {
+            return false;
+        }
+
+        Success<?, ?> other = (Success<?, ?>) obj;
+        return Objects.equals(value, other.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(value);
+    }
+
 }

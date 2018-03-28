@@ -1,6 +1,7 @@
 package com.besmartmobile.result.annimon;
 
 
+import com.annimon.stream.Objects;
 import com.annimon.stream.Optional;
 import com.annimon.stream.function.BiFunction;
 import com.annimon.stream.function.Consumer;
@@ -160,5 +161,24 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
             function.accept(getError());
         }
         return this;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Failure)) {
+            return false;
+        }
+
+        Failure<?, ?> other = (Failure<?, ?>) obj;
+        return Objects.equals(error, other.error);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(error);
     }
 }
