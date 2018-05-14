@@ -269,4 +269,8 @@ public abstract class Result<TSuccess, TFailure> {
     public abstract Result<TSuccess, TFailure> onSuccess(final Runnable function);
 
     public abstract TSuccess requireSuccess(String message);
+
+    public <T> T pipe(final Function<Result<TSuccess, TFailure>, T> function) {
+        return function.apply(this);
+    }
 }
